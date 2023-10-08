@@ -26,7 +26,11 @@
     <div class="form-group mb-2">
         <label for="status">ステータス</label>
         <select class="form-control" id="status" name="status" value="{{ $project->status }}">
-            <!-- 省略 -->
+            <option value="見積準備中">見積準備中</option>
+            <option value="見積発行済み">見積発行済み</option>
+            <option value="契約済み">契約済み</option>
+            <option value="履行中">履行中</option>
+            <option value="精算中">精算中</option>
         </select>
     </div>
     
