@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\check;
-use App\Models\customer;
-use App\Models\price;
+use App\Models\Check;
+use App\Models\Customer;
+use App\Models\Price;
 use App\Models\Project;
 use Illuminate\Http\Request;
-use Psy\VersionUpdater\Checker;
 
 class ProjectController extends Controller
 {
@@ -101,12 +100,12 @@ public function edit($id)
     }
 
     public function check() {
-        $checks = check::all(); // あなたのモデルとロジックに応じて
+        $checks = Check::all(); // あなたのモデルとロジックに応じて
         return view('check', ['checks' => $checks]);
     }
 
     public function price() {
-        $prices = price::all(); // あなたのモデルとロジックに応じて
+        $prices = Price::all(); // あなたのモデルとロジックに応じて
         return view('price', ['prices' => $prices]);
     }
 
