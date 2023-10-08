@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\check;
 use App\Models\customer;
 use App\Models\price;
-use App\Models\project;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Psy\VersionUpdater\Checker;
 
