@@ -96,8 +96,9 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($projects as $project)
-                            <tr style="cursor: pointer;" onclick="window.location='{{ route('projects.show', $project->id) }}';">
+                            <tr onclick="window.location='{{ route('projects.show', $project->id) }}';" style="cursor: pointer;">
                                 <td>{{ $project->customer }}</td>
                                 <td>{{ $project->status }}</td>
                                 <td>{{ $project->start }}</td>
@@ -106,15 +107,18 @@
                                 <td>{{ $project->created_at }}</td>
                                 <td>{{ $project->user->name }}</td>
                                 <td>
-                                    <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-link text-secondary p-0"><i class="fas fa-edit"></i></a>
-                                    <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="d-inline">
+                                    <!-- イベントの伝播を停止 -->
+                                    <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-link text-secondary p-0" onclick="event.stopPropagation();"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="d-inline" onsubmit="event.stopPropagation(); return confirm('本当に削除しますか？');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                        <button type="submit" class="btn btn-link text-danger p-0" onclick="event.stopPropagation();"><i class="fas fa-trash"></i></button>
+                                    </form>                                    
                                 </td>
                             </tr>
                             @endforeach
+                            
+                            
                         </tbody>
                     </table>
                 </div>
