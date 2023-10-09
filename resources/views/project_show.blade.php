@@ -18,7 +18,7 @@
             <h3>サイドメニュー</h3>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <a href="{{ route('project.details.kadouhi', $project->id) }}" class="btn btn-primary">稼働日詳細確認</a>
+                    <a href="{{ route('kadouhi.index', ['project_id' => $project->id]) }}">稼働日</a>
                 </li> 
                 <li class="list-group-item">
                     <a href="{{ route('project.details.estimate', $project->id) }}" class="btn btn-primary">見積書作成</a>

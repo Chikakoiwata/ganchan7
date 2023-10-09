@@ -20,8 +20,12 @@ Route::get('/projects/customer', [ProjectController::class, 'customer'])->name('
 Route::get('/projects/check', [ProjectController::class, 'check'])->name('projects.check');
 Route::get('/Projects/price', [ProjectController::class, 'price'])->name('projects.price');
 
+Route::get('project/{project_id}/kadouhi', [KadouhiController::class, 'index'])->name('kadouhi.index');
 Route::get('/project/{project}/details/kadouhi', [KadouhiController::class, 'showKadouhi'])->name('project.details.kadouhi');
-Route::get('/kadouhi', [KadouhiController::class, 'index'])->name('kadouhi.index');
+
+// このようにルートパラメータを使用してkadouhiのページにアクセスするためのルートを定義します。
+
+
 
 Route::get('/project/{project}/details/estimate', [EstimateController::class, 'showestimate'])->name('project.details.estimate');
 Route::get('/project/{project}/details/check', [CheckController::class, 'showcheck'])->name('project.details.check');
