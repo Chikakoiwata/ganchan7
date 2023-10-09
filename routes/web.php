@@ -49,7 +49,13 @@ Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('
 //Customer update
 Route::resource('/customers', CustomerController::class);
 
-
+//確認事項関連
+Route::get('/checks/create', [CheckController::class, 'create'])->name('checks.create');
+Route::post('/check', [CheckController::class, 'store'])->name('checks.store');
+Route::get('/check', [CheckController::class, 'index'])->name('checks.index');
+Route::get('/checks/{check}', [CheckController::class, 'show'])->name('checks.show');
+//Customer update
+Route::resource('/checks', CheckController::class);
 
 
 
@@ -64,18 +70,11 @@ Route::resource('/estimate', EstimateController::class);
 //ホーム画面に戻る
 Route::get('/project', [ProjectController::class, 'index'])->name('back_to_projects');
 
-//確認事項関連
-Route::get('/checks/{check}', [CheckController::class, 'show'])->name('check.show');
-Route::get('/check/create', [CheckController::class, 'create'])->name('checks.create');
-Route::get('/checks', [CheckController::class, 'index'])->name('checks.index');
-Route::middleware(['auth'])->group(function () {
-Route::resource('checks', CheckController::class);
+
 
 Route::post('/create_detail_projects', [KadouhiController::class, 'store']);
 
 
 });  
-
-});
 
 require __DIR__.'/auth.php';

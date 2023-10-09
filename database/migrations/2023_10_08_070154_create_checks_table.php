@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
+            $table->string('check_country');
+            $table->string('visa');
+            $table->string('pe');
+            $table->string('income_tax');
+            $table->string('vat');
+            $table->string('consumption_tax');
+            $table->string('tax_reference');
+            $table->string('danger');
+            $table->string('check_remarks');
             $table->timestamps();
         });
     }
