@@ -15,11 +15,9 @@
 <body class="vh-100">
     <div class="row">
         <div class="d-none d-lg-block col-lg-5">
-            <img src="{{ asset('img/top.png') }}" alt="" class="w-100 vh-100" style="object-fit: cover;">
         </div>
         <div class="col-12 col-lg-7">
             <div class="vh-100 d-flex flex-column justify-content-center px-4 px-lg-0">
-                <img src="/img/logo.png" alt="" style="width: 60px;" class="mt-5 mb-4">
                 <h1 class="font-weight-bold mb-4" style="font-size: 56px;">TFA調整業務からの解放</h1>
                 <p class="fs-3 font-weight-bold">GANCHANにお願いしよう</p>
                 <div>

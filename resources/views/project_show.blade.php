@@ -3,29 +3,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TFA調整さん | 案件一覧</title>
+    <title>GANCHAN | 案件一覧</title>
     <!-- Material Design for Bootstrap 読み込み 開始 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
     <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}" defer></script>
     <!-- Material Design for Bootstrap 読み込み 終了 -->
+
+    <!-- Additional Styles -->
+    <style type="text/css">
+        .navbar {
+            background-color: #f7f7f7 !important;
+        }
+
+        a.navbar-brand {
+            margin-left: 20px;
+            color: black !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">GANCHAN</a>
+</nav>
+
 <div class="container mt-4">
+    <p>個別案件ページ</p>
     <div class="row">
         <!-- 左側のサイドメニュー -->
         <div class="col-md-3">
-            <h3>サイドメニュー</h3>
+    
             <ul class="list-group">
                 <li class="list-group-item">
-                    <a href="{{ route('kadouhi.index', ['project_id' => $project->id]) }}">稼働日</a>
+                    <a href="{{ route('kadouhi.index', ['project_id' => $project->id]) }}">稼働日確認</a>
                 </li> 
-                <li class="list-group-item">
-                    <a href="{{ route('project.details.estimate', $project->id) }}" class="btn btn-primary">見積書作成</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="{{ route('project.details.check', $project->id) }}" class="btn btn-primary">簡易チェッカー</a>
-                </li>                                
+                             
             </ul>
         </div>
 

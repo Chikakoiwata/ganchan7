@@ -28,52 +28,70 @@
             margin: 0 auto;
         }
 
-        header {
-            background-color: white;
+        /* ヘッダーのスタイル変更 */
+        .navbar-dark .navbar-nav .nav-link {
             color: black;
-            padding: 10px 0;
         }
 
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-            line-height: 2;
+        .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+            background-color: #f2f2f2;
+            color: black;
+            text-decoration: none;
         }
 
-        header .menu-items {
-            display: flex;
-            gap: 10px;
+        a.navbar-brand {
+            margin-left: 20px; /* 1. GANCHANのロゴの左の余白を増やす */
+            color: black !important;  /* GANCHANの文字色を黒に */
+            font-weight: bold; /* GANCHANの文字を太くする */
         }
+
+        .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+            background-color: #f2f2f2; /* 3. ホバー時の背景色をグレーに */
+            color: black;
+            text-decoration: none; /* ホバー時の下線を削除 */
+        }
+
+        .navbar {
+            background-color: #f7f7f7 !important; /* ヘッダーの背景色を薄いグレーに */
+        }
+
 
         table.table > thead > tr {
-            background-color: #007BFF;
+            background-color: #abaeb1;
             color: white;
         }
 
         .btn-red {
-            background-color: red;
+            background-color: #dc1029;
         }
 
         footer {
             padding: 20px 0;
             background-color: #f8f9fa;
             text-align: center;
+            width: 100%;
         }
     </style>
 </head>
 
 <body class="font-sans antialiased bg-light">
-    <header class="container">
-        <div class="row justify-content-between">
-            <div class="col-auto">
-                <div class="logo">GANCHAN</div>
-            </div>
-            <div class="col-auto menu-items">
-                <a href="{{ route('projects.customer') }}" class="btn btn-primary">顧客情報</a>
-                <a href="{{ route('projects.check') }}" class="btn btn-primary">確認事項</a>
-                <a href="{{ route('projects.price') }}" class="btn btn-primary">単価マスタ</a>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">GANCHAN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('projects.customer') }}">顧客情報</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('projects.check') }}">確認事項</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+    
     </header>
 
     <div class="container mt-4">
