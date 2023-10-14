@@ -50,13 +50,61 @@
             <p><strong>Status:</strong> {{ $project->status }}</p>
             <p><strong>Start:</strong> {{ $project->start }}</p>
             <p><strong>End:</strong> {{ $project->end }}</p>
-            <p><strong>Number:</strong> {{ $project->numbers }}</p>
+
+        <!-- ここからフォーム -->
+        <form action="{{ route('project.updateCheckboxes', $project->id) }}" method="post">
+            @csrf
+
+            <div class="mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="estimate_submitted" id="estimate_submitted" value="1" {{ $detailproject->estimate_submitted ? 'checked' : '' }}>
+                    <label class="form-check-label" for="estimate_submitted">見積作成済み</label>
+                </div>
             
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="po_received" id="po_received" value="1" {{ $detailproject->po_received ? 'checked' : '' }}>
+                    <label class="form-check-label" for="po_received">PO受領済み</label>
+                </div>
             
-            <!-- コンテンツ表示エリア -->
-            <div id="content-display">
-                <!-- 初期画面やボタンをクリックした際のコンテンツがここに表示される -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="tax_checked" id="tax_checked" value="1" {{ $detailproject->tax_checked ? 'checked' : '' }}>
+                    <label class="form-check-label" for="tax_checked">税務確認済み</label>
+                </div>
+            
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="danger_checked" id="danger_checked" value="1" {{ $detailproject->danger_checked ? 'checked' : '' }}>
+                    <label class="form-check-label" for="danger_checked">渡航情報確認済み</label>
+                </div>
+            
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="logi_arranged" id="logi_arranged" value="1" {{ $detailproject->logi_arranged ? 'checked' : '' }}>
+                    <label class="form-check-label" for="logi_arranged">ロジアレンジ済み</label>
+                </div>
+
+                <div class="mb-3">
+                    <label for="estimate_no" class="form-label">Estimate No.</label>
+                    <input type="text" class="form-control" id="estimate_no" name="estimate_no" value="{{ $detailproject->estimate_no }}">
+                </div>
+        
+                <div class="mb-3">
+                    <label for="po_no" class="form-label">PO No.</label>
+                    <input type="text" class="form-control" id="po_no" name="po_no" value="{{ $detailproject->po_no }}">
+                </div>
+        
+                <div class="mb-3">
+                    <label for="project_remarks" class="form-label">Remarks</label>
+                    <textarea class="form-control" id="project_remarks" name="project_remarks">{{ $detailproject->project_remarks }}</textarea>
+                </div>
+                
             </div>
+
+            <!-- 保存ボタン -->
+            <button type="submit" class="btn btn-primary mt-2">保存</button>
+        </form>
+        <!-- ここまでフォーム -->
+
+
+
 
 
         </div>

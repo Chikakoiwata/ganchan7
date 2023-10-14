@@ -5,6 +5,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\KadouhiController;
 use App\Http\Controllers\ProjectController; // 追記
+use App\Http\Controllers\DetailProjectController; // 追記
+use App\Models\DetailProject;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,11 +28,11 @@ Route::get('/project/{project}/details/kadouhi', [KadouhiController::class, 'sho
 // このようにルートパラメータを使用してkadouhiのページにアクセスするためのルートを定義します。
 
 
-
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/project/{project}/details/estimate', [EstimateController::class, 'showestimate'])->name('project.details.estimate');
 Route::get('/project/{project}/details/check', [CheckController::class, 'showcheck'])->name('project.details.check');
 
-Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+
 
 
 //Projectの修正と削除
@@ -40,6 +42,11 @@ Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name
 Route::patch('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
 // 削除のためのルート
 Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+// プロジェクト詳細のチェックボックスの更新に関するルート
+Route::get('/project/{project}/update-checkboxes', [DetailProjectController::class, 'index'])->name('detailprojects.index');
+Route::post('/project/{project}/update-checkboxes', [DetailProjectController::class, 'updateCheckboxes'])->name('project.updateCheckboxes');
+
 
 //customerのデータを書き込む
 Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');

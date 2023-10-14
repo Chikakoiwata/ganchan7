@@ -216,28 +216,6 @@ function updateCellColor(cell, input) {
     }
 </script>
 @endif
-
-    
-
-
-@if(session('kadouhi'))
-    <div>
-        <!-- 登録済みのデータを表示 -->
-        <p>おめでとう！以下が登録済みのデータです</p>
-        <p>Total Traveling Days: {{ session('kadouhi')->total_traveling_days }}</p>
-        <p>Total Working Days: {{ session('kadouhi')->total_working_days }}</p>
-        <p>Total Working Days: {{ session('kadouhi')->total_holidays }}</p>
-        <p>Total Working Days: {{ session('kadouhi')->total_overtime_rate }}</p>
-        <p>Total Working Days: {{ session('kadouhi')->total_extra_charge }}</p>
-
-    </div>
-@endif
-
-
-    
-    
-    
-
  
 </body>
 </html>

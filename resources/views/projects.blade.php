@@ -122,7 +122,7 @@
                                 <td>{{ $project->start }}</td>
                                 <td>{{ $project->end }}</td>
                                 <td>{{ $project->number }}</td>
-                                <td>{{ $project->created_at }}</td>
+                                <td>{{ $project->created_at->format('Y-m-d') }}</td>
                                 <td>{{ $project->user->name }}</td>
                                 <td>
                                     <!-- イベントの伝播を停止 -->

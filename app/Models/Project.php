@@ -24,5 +24,14 @@ public function estimate()
 {
     return $this->hasOne(estimate::class);
 }
-    
+
+public function detailProject() 
+{
+    return $this->hasOne(DetailProject::class); 
+}
+
+
+
+
+
 }

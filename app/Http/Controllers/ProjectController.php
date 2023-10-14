@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Check;
 use App\Models\Customer;
+use App\Models\DetailProject;
 use App\Models\Price;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -77,16 +78,21 @@ public function edit($id)
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $project = Project::find($id);
-        if (!$project) {
-            // プロジェクトが見つからない場合は、プロジェクトの一覧ページにリダイレクトします。
-            return redirect()->route('projects.index');
-        }
-        return view('project_show', ['project' => $project]);
+        $detailproject = DetailProject::where('project_id', $id)->first();
+    
+// $detailprojectがnullの場合、新しいインスタンスを作成
+if (!$detailproject) {
+    $detailproject = new DetailProject();
+}
+
+
+        return view('project_show', compact('project', 'detailproject'));
     }
     
+
 
 
     public function kadouhiDetails() {
