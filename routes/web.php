@@ -6,6 +6,7 @@ use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\KadouhiController;
 use App\Http\Controllers\ProjectController; // 追記
 use App\Http\Controllers\DetailProjectController; // 追記
+use App\Http\Controllers\LogiController;
 use App\Models\DetailProject;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +25,13 @@ Route::get('/Projects/price', [ProjectController::class, 'price'])->name('projec
 
 Route::get('project/{project_id}/kadouhi', [KadouhiController::class, 'index'])->name('kadouhi.index');
 Route::get('/project/{project}/details/kadouhi', [KadouhiController::class, 'showKadouhi'])->name('project.details.kadouhi');
-
 // このようにルートパラメータを使用してkadouhiのページにアクセスするためのルートを定義します。
 
+Route::get('project/{project}/logi', [LogiController::class, 'index'])->name('logi.index');
+Route::post('project/{project}/logi', [LogiController::class, 'store'])->name('logi.store');
+Route::get('/projects/{project}/logi/{logi}/edit', [LogiController::class, 'edit'])->name('logi.edit');
+Route::put('/projects/{project}/logi/{logi}/edit', [LogiController::class, 'update'])->name('logi.update');
+Route::delete('/projects/{project}/logi/{logi}', [LogiController::class, 'destroy'])->name('logi.destroy');
 
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/project/{project}/details/estimate', [EstimateController::class, 'showestimate'])->name('project.details.estimate');

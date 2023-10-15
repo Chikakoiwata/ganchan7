@@ -30,6 +30,10 @@ public function detailProject()
     return $this->hasOne(DetailProject::class); 
 }
 
+public function logi() 
+{
+    return $this->hasMany(Logi::class); 
+}
 
 
 

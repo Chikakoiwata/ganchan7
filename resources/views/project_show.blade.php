@@ -33,16 +33,20 @@
 <div class="container mt-4">
     <p>個別案件ページ</p>
     <div class="row">
-        <!-- 左側のサイドメニュー -->
-        <div class="col-md-3">
-    
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="{{ route('kadouhi.index', ['project_id' => $project->id]) }}">稼働日確認</a>
-                </li> 
-                             
-            </ul>
-        </div>
+<!-- 左側のサイドメニュー -->
+<div class="col-md-3">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="{{ route('kadouhi.index', ['project_id' => $project->id]) }}">稼働日確認</a>
+        </li> 
+        <li class="list-group-item">
+            <a href="{{ route('logi.index', ['project' => $project->id]) }}">旅程アレンジ</a>
+
+        </li>          
+    </ul>
+</div>
+
 
         <!-- 右側の表示エリア -->
         <div class="col-md-9">
