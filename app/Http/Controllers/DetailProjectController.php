@@ -82,7 +82,7 @@ class DetailProjectController extends Controller
         $detailProject->tax_checked = $request->input('tax_checked') ? true : false;
         $detailProject->danger_checked = $request->input('danger_checked') ? true : false;
         $detailProject->logi_arranged = $request->input('logi_arranged') ? true : false;
-        $detailProject->logi_arranged = $request->input('scope_checked') ? true : false;
+        $detailProject->scope_checked = $request->input('scope_checked') ? true : false;
         $detailProject->estimate_no = $request->input('estimate_no');
         $detailProject->po_no = $request->input('po_no');
         $detailProject->project_remarks = $request->input('project_remarks');
