@@ -15,7 +15,9 @@ class LogiController extends Controller
     public function index($project)
     {
         $project = Project::findOrFail($project);  // 特定のプロジェクトのみを取得します。
-        $logi = Logi::orderBy('start_day', 'asc')->orderBy('start_time', 'asc')->get();
+
+        // 以下の行で、特定のproject_idに紐づくLogisのみを取得するように変更します。
+    $logi = Logi::where('project_id', $project->id)->orderBy('start_day', 'asc')->orderBy('start_time', 'asc')->get();
 
         return view('logi', [
             'logis' => $logi,
@@ -36,6 +38,7 @@ class LogiController extends Controller
      */
     public function store(Request $request, $project) {
         $logi = new Logi;
+        $logi->project_id = $project; // ProjectのIDをproject_idとして保存
         $logi->title = $request->title;
         $logi->type = $request->type;
         $logi->start_day = $request->start_day;
