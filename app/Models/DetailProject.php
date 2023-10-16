@@ -17,6 +17,9 @@ class DetailProject extends Model
     'po_no',
     'project_remarks',
     'project_id',
+    'scope_checked',
+    'engineer_type',
+    'scope',
     ];
     
     public function project()
