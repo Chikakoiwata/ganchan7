@@ -132,7 +132,7 @@
                         <td>Remarks</td>
                             <td>
                                 <span id="customer_remarks-text">{{ $customer->customer_remarks }}</span>
-                                <input type="text" id="customer_remarks" name="customer_remarks" value="{{ $customer->customer_remarks }}" class="form-control" style="display: none;">
+                                <textarea id="customer_remarks" name="customer_remarks" class="form-control" style="display: none;">{{ $customer->customer_remarks }}</textarea>
                             </td>
                     </tr>
                 </table>
