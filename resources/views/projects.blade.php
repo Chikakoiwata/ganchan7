@@ -148,7 +148,7 @@
     <script>
         $(document).ready(function() {
             $('.table').DataTable({
-                "order": [] // 初期表示時の並べ替えを無効にする
+                "order": [[5, "desc"]] // 5列目（登録日）で降順に並べ替え
             });
         });
     </script>
