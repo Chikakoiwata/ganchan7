@@ -131,7 +131,7 @@
                     <tr>
                         <td>Remarks</td>
                             <td>
-                                <span id="customer_remarks-text">{{ $customer->customer_remarks }}</span>
+                                <span id="customer_remarks-text">{!! nl2br(e($customer->customer_remarks)) !!}</span>
                                 <textarea id="customer_remarks" name="customer_remarks" class="form-control" style="display: none;">{{ $customer->customer_remarks }}</textarea>
                             </td>
                     </tr>

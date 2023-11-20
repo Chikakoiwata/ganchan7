@@ -85,7 +85,7 @@ class CustomerController extends Controller
             'customer_maintenance' => 'required|string|max:255',
             'customer_address' => 'required|string|max:255',
             'customer_access' => 'required|string|max:255',
-            'customer_remarks' => 'required|string|max:255',
+            'customer_remarks' => 'required',
         ]);
 
         $customer = Customer::findOrFail($id);
